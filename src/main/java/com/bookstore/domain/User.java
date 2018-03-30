@@ -1,6 +1,5 @@
 package com.bookstore.domain;
 
-
 import com.bookstore.domain.security.Authority;
 import com.bookstore.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
