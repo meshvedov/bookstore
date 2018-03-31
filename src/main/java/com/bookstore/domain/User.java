@@ -5,6 +5,7 @@ import com.bookstore.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,10 +16,10 @@ import java.util.Set;
 @Entity
 public class User implements UserDetails, Serializable {
 
-    private static final long serialVersionUID = 434141L;
+    private static final long serialVersionUID = 43414129L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false, updatable = false)
     private Long id;
 
@@ -37,10 +38,6 @@ public class User implements UserDetails, Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void setUsername(String username) {
@@ -94,8 +91,6 @@ public class User implements UserDetails, Serializable {
     public void setUserRoles(Set<UserRole> userRoles) {
         this.userRoles = userRoles;
     }
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

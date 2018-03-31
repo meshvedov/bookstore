@@ -1,12 +1,12 @@
 package com.bookstore.domain.security;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Role {
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 42134214L;
 
@@ -15,6 +15,7 @@ public class Role {
 
     private String name;
 
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
 
     public Role() {}
