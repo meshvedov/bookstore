@@ -5,7 +5,6 @@ import com.bookstore.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
 import javax.persistence.*;
 import java.io.Serializable;
