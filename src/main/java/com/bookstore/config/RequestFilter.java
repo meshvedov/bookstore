@@ -25,7 +25,6 @@ public class RequestFilter implements Filter {
         if (!request.getMethod().equalsIgnoreCase("OPTIONS")) {
             try {
                 chain.doFilter(req, res);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
